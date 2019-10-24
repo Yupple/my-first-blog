@@ -18,8 +18,8 @@ def post_new(request):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 def post_new(request):
-    if request.method == "POST":
-        form = PostForm(request.POST)
+    if request.method == "GET":
+        form = PostForm(request.GET)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -32,8 +32,8 @@ def post_new(request):
 
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+    if request.method == "GET":
+        form = PostForm(request.GET, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
