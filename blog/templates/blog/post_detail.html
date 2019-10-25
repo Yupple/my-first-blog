@@ -23,7 +23,7 @@
     <div class="comment">
         <div class="date">
             {{ comment.created_date }}
-             {% if user.is_authenticated or comment.approved_comment %}
+            {% if user.is_authenticated or comment.approved_comment %}
                 <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
                 
             {% endif %}
@@ -31,7 +31,6 @@
         <strong>{{ comment.author }}</strong>
         <p>{{ comment.text|linebreaks }}</p>
     </div>
-    {% endif %}
 {% empty %}
     <p>No comments here yet :(</p>
 {% endfor %}
