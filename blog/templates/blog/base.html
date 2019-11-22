@@ -14,17 +14,28 @@
             <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
          　　<p class="top-menu">Hello<small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
         {% else %}
+           
             <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-        {% endif %}
+        {% endif %} 
+        
         <h1><a href="/">みんなのYupple掲示板</a></h1>
+        <button type="button" onclick="location.href='{% url 'hello_get_query' %}'"  class="save btn btn-default">食堂を効率的に使う方法はこちら</button>
+     
     </div>
-    <div class="content container">
+    
+    <div class="content container"> 
+   
         <div class="row">
+        
             <div class="col-md-8">
+           
             {% block content %}
             {% endblock %}
             </div>
         </div>
     </div>
+
+
+
 </body>
 </html>
